@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{%block title%}Dodawanie recepty{%endblock%}
+
+{%block content%}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{username}} {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+
+    <h1>Change Credentials</h1>
+    <br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.Data_waznosci_recepty.label(class="form-label") }}
+        {{ form.Data_waznosci_recepty(class="form-control") }}
+        <br/>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+<br/><br/><br/>
+
+{%endblock%}

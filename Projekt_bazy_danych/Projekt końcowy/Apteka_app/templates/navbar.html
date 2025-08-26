@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{url_for('base')}}">Apteka</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('produkty.get_produkty')}}">Produkty</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('producent.get_producent')}}">Producenci</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('pracownicy.get_pracownicy')}}">Pracownicy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('stanowiska.get_stanowiska')}}">Stanowiska</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('klienci.get_klienci')}}">Klienci</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('recepta.get_recepta')}}">Recepty</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('transakcja.get_transakcja')}}">Transakcje</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

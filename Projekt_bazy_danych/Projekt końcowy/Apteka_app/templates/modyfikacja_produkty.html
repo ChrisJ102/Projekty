@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block title%}Modyfikacja danych produktu{%endblock%}
+
+{%block content%}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{username}} {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+
+    <h1>Change Credentials</h1>
+    <br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.Nazwa.label(class="form-label") }}
+        {{ form.Nazwa(class="form-control", value = produkty.Nazwa) }}
+        {{ form.Cena.label(class="form-label") }}
+        {{ form.Cena(class="form-control", value = produkty.Cena) }}
+        {{ form.Data_przydatnosci.label(class="form-label") }}
+        {{ form.Data_przydatnosci(class="form-control", value = produkty.Data_przydatnosci) }}
+        {{ form.Czy_na_recepte.label(class="form-label") }}
+        {{ form.Czy_na_recepte(class="form-control", value = produkty.Czy_na_recepte) }}
+        {{ form.ID_Producenta.label(class="form-label") }}
+        {{ form.ID_Producenta(class="form-control", value = produkty.ID_Producenta) }}
+        <br/>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+<br/><br/><br/>
+
+{%endblock%}

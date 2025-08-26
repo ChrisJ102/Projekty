@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{%block title%}Lista klientów{%endblock%}
+
+{%block content%}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{name}} {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+<h1>Klienci w bazie: </h1>
+<br/>
+<table class="table table-striped table-hover">
+    <tr><td>ID</td><td>{{klienci.ID_Klienta}}</td></tr>
+    <tr><td>Imie</td><td>{{klienci.Imie}}</td></tr>
+    <tr><td>Nazwisko</td><td>{{klienci.Nazwisko}}</td></tr>
+    <tr><td>Numer telefonu</td><td>{{klienci.Nr_Telefonu}}</td></tr>
+    <tr><td>ID recepty</td><td>{{klienci.ID_posiadanej_recepty}}</td></tr>
+</table>
+<a href="{{url_for('klienci.modyfikacja_klienci', klienci_id=klienci.ID_Klienta)}}" class="btn btn-primary">Zmień dane klienta</a>
+<a href="{{url_for('klienci.usuwanie_klienci', klienci_id=klienci.ID_Klienta)}}" class="btn btn-danger">Usuń klienta</a>
+
+{%endblock%}

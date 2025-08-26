@@ -1,0 +1,2 @@
+FLASK_APP=Apteka.py
+FLASK_ENV=development

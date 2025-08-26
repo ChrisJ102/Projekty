@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{%block title%}Lista pracowników{%endblock%}
+
+{%block content%}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{name}} {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+<h1>Pracownicy w bazie: </h1>
+<br/>
+<table class="table table-striped table-hover">
+    <tr><td>ID</td><td>{{pracownicy.ID_Pracownika}}</td></tr>
+    <tr><td>Imie</td><td>{{pracownicy.Imie}}</td></tr>
+    <tr><td>Nazwisko</td><td>{{pracownicy.Nazwisko}}</td></tr>
+    <tr><td>Numer telefonu</td><td>{{pracownicy.Nr_Telefonu}}</td></tr>
+    <tr><td>ID Stanowiska</td><td>{{pracownicy.ID_Stanowiska}}</td></tr>
+</table>
+<a href="{{url_for('pracownicy.modyfikacja_pracownicy', pracownicy_id=pracownicy.ID_Pracownika)}}" class="btn btn-primary">Zmień dane pracownika</a>
+<a href="{{url_for('pracownicy.usuwanie_pracownicy', pracownicy_id=pracownicy.ID_Pracownika)}}" class="btn btn-danger">Usuń pracownika</a>
+
+{%endblock%}

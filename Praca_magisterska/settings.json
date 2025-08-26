@@ -1,0 +1,14 @@
+{
+    "camera_mode": 2,
+    "camera_width": 1920,
+    "camera_height": 1080,
+    "brightness": -100.0,
+    "contrast": 1.9,
+    "grayscale": true,
+    "negative": true,
+    "minArea": 30.0,
+    "maxArea": 100.0,
+    "roi_width": 800,
+    "roi_height": 200,
+    "small_roi_size": 70
+}
