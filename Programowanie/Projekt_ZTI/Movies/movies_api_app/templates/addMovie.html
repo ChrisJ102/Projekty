@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{%block title%}User List{%endblock%}
+
+{%block content%}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+
+    <h1>Add Movie </h1>
+    <br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.title.label(class="form-label") }}
+        {{ form.title(class="form-control") }}
+        <br/>
+        {{ form.movie_release_year.label(class="form-label") }}
+        {{ form.movie_release_year(class="form-control") }}
+        <br/>
+        {{ form.movie_rating.label(class="form-label") }}
+        {{ form.movie_rating(class="form-control") }}
+        <br/>
+        {{ form.description.label(class="form-label") }}
+        {{ form.description(class="form-control") }}
+        <br/>
+        {{ form.cena.label(class="form-label") }}
+        {{ form.cena(class="form-control") }}
+        <br/>
+        {{ form.director_id.label(class="form-label") }}
+        {{ form.director_id(class="form-control") }}
+        <br/>
+        {{ form.category_id.label(class="form-label") }}
+        {{ form.category_id(class="form-control") }}
+        <br/>
+        {{ form.publish_house_id.label(class="form-label") }}
+        {{ form.publish_house_id(class="form-control") }}
+        <br/>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+<br/><br/><br/>
+
+{%endblock%}

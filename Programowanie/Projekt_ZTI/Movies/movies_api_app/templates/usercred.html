@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{%block title%}Movie Credentials{%endblock%}
+
+{%block content%}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+<h1>User Credentials </h1>
+<br/>
+<table class="table table-striped table-hover">
+    <tr>
+        <td>Id: </td><td>{{current_user.id}}</td>
+    </tr>
+    <tr>
+        <td>Username: </td><td>{{current_user.username}}</td>
+    </tr>
+    <tr>
+        <td>Email: </td><td>{{current_user.email}}</td>
+    </tr>
+    <tr>
+        <td>Creation Date: </td><td>{{current_user.creation_date}}</td>
+    </tr>
+</table>
+<a href="{{url_for('auth.update_user_data', user_id=current_user.id)}}" class="btn btn-primary">Modify</a>
+<a href="{{url_for('auth.logout', user_id=current_user.id)}}" class="btn btn-primary">Logout</a>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Realised Orders</h1>
+            <table class="table table-striped table-hover">
+                {% for order in orders%}
+                        {% for movie in movies %}
+                            {%if order.movie_id == movie.id%}
+                                <tr>
+                                    <td>{{order.id}}. {{order.buy_date}}  {{movie.title}}
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col">
+            <h1>Realised Rents</h1>
+            <table class="table table-striped table-hover">
+                {% for loan in loans %}
+                    {% for movie in movies %}
+                        {%if movie.id == loan.movie_id %}
+                            <tr>
+                                <td>{{loan.id}}. {{loan.start_date}}-{{loan.end_date}}  {{movie.title}}
+                            </tr>
+                        {%endif%}
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{%endblock%}
